@@ -31,6 +31,20 @@ X = preprocessing(df,features)
 model, labels = clustering(X,n_clusters,linkage)
 
 df["Cluster"] = labels
+
+if len(features) == 2:
+    fig, ax = plt.subplots()
+    ax.scatter(
+        df[features[0]],
+        df[features[1]],
+        c=df["Cluster"]
+    )
+    ax.set_xlabel(features[0])
+    ax.set_ylabel(features[1])
+
+    st.pyplot(fig)
+else:
+    st.info("Select exactly 2 features for visualization")
 st.subheader("Clustered Data")
 st.dataframe(df)
 
