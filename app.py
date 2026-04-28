@@ -6,7 +6,7 @@ from model import preprocessing, clustering
 
 st.title("Clustering App")
 
-file = st.file("Upload your dataset",type=["csv"])
+file = st.file_uploader("Upload your dataset",type=["csv"])
 if file is not None:
     df = pd.read_csv(file)
 else:
