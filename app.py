@@ -32,7 +32,7 @@ model, labels = clustering(X,n_clusters,linkage)
 
 df["Cluster"] = labels
 
-if len(features) == 2:
+if (len(features)) == 2 & (df[features[0]]=='int64') |(df[features[0]]=='float64')& (df[features[1]]=='int64') |(df[features[1]]=='float64'):
     fig, ax = plt.subplots()
     ax.scatter(
         df[features[0]],
@@ -44,7 +44,7 @@ if len(features) == 2:
 
     st.pyplot(fig)
 else:
-    st.info("Select exactly 2 features for visualization")
+    st.info("Select exactly 2 NUMERICAL features for visualization")
 st.subheader("Clustered Data")
 st.dataframe(df)
 
