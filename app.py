@@ -46,8 +46,8 @@ X_pca = pca.fit_transform(X_scaled)
 
 
 ax.scatter(
-    df[X_pca[:,0]],
-    df[X_pca[:,1]],
+    X_pca[:,0],
+    X_pca[:,1],
     c=df["Cluster"]
 )
 ax.set_xlabel('Component 1')
